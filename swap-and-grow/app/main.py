@@ -15,14 +15,9 @@ def iniciar_sesion():
 
     # Cargar la imagen del logo
     ruta_logo = "static/img/logo_swap.png"  
-    imagen_pil = Image.open(ruta_logo)
-    imagen_pil = imagen_pil.resize((150, 150))
-
-    # Convertir la imagen de PIL a un objeto PhotoImage
-    imagen_tk = ImageTk.PhotoImage(imagen_pil)
-
+    my_image = ctk.CTkImage(light_image=Image.open(ruta_logo), dark_image=Image.open(ruta_logo), size=(100, 100))
     # Widget para mostrar el logo
-    label_logo = ctk.CTkLabel(ventana_login, image=imagen_tk)
+    label_logo = ctk.CTkLabel(ventana_login, image=my_image, text="")
     label_logo.pack(pady=10)
 
     # Elementos de la ventana de login
@@ -54,7 +49,6 @@ def iniciar_sesion():
     ventana_login.mainloop()
 
 def crear_ventana_principal():
-    global ventana_principal
     
     # Crear ventana principal
     ventana_principal = ctk.CTk()
@@ -68,16 +62,23 @@ def crear_ventana_principal():
     panel_principal = ctk.CTkFrame(ventana_principal)
     panel_principal.pack(fill="both", expand=True)
 
-    # Crear el panel para el encabezado (top)
-    panel_top = ctk.CTkFrame(panel_principal, height=50, border_width=2, fg_color="lightgreen")
+    # -----------------------Crear el panel para el encabezado (top)------------------
+    panel_top = ctk.CTkFrame(panel_principal, height=60, border_width=2, fg_color="#F2F2F2")
     panel_top.pack(side="top", fill="x")
 
-    # Crear el panel para el menú (aside izquierdo)
-    panel_izquierdo = ctk.CTkFrame(panel_principal, width=200, border_width=2)
+    # Cargar la imagen del logo
+    ruta_logo_usuario = "static/img/usuario.png"  
+    my_image = ctk.CTkImage(light_image=Image.open(ruta_logo_usuario), dark_image=Image.open(ruta_logo_usuario), size=(30, 30))
+    # Widget para mostrar el logo
+    label_logo = ctk.CTkLabel(panel_top, image=my_image, text="")
+    label_logo.pack(side="right", pady=5, padx=5)
+    
+    #-----------------------Crear el panel para el menú (aside izquierdo)------------------
+    panel_izquierdo = ctk.CTkFrame(panel_principal, width=200, border_width=2, fg_color="#F2F2F2")
     panel_izquierdo.pack(side="left", fill="y")
 
-    # Crear el panel para el panel derecho
-    panel_derecho = ctk.CTkFrame(panel_principal, border_width=2)
+    #-----------------------Crear el panel para el panel derecho-----------------------
+    panel_derecho = ctk.CTkFrame(panel_principal, border_width=2, fg_color="#F2F2F2")
     panel_derecho.pack(side="right", fill="both", expand=True)
 
     ventana_principal.mainloop()
