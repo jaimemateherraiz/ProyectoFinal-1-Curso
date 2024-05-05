@@ -11,10 +11,10 @@ class DatabaseConnection:
     def connect(self):
         try:
             self.connection = mysql.connector.connect(
-                host=self.host,
-                user=self.user,
-                password=self.password,
-                database=self.database
+                host="localhost",
+                user="superadmin",
+                password="superadmin",
+                database="swap_and_grow"
             )
             print("¡Conexión exitosa a la base de datos!")
         except mysql.connector.Error as error:
