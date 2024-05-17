@@ -1,27 +1,21 @@
 import mysql.connector
 
 class DatabaseConnection:
-    def __init__(self, host, user, password, database):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.connection = None
+    def __init__(self):
+        self.conn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="swap_and_grow"
+        )
+        self.cursor = self.conn.cursor()
 
-    def connect(self):
-        try:
-            self.connection = mysql.connector.connect(
-                host="localhost",
-                user="superadmin",
-                password="superadmin",
-                database="swap_and_grow"
-            )
-            print("¡Conexión exitosa a la base de datos!")
-        except mysql.connector.Error as error:
-            print("Error al conectarse a la base de datos:", error)
+    def execute_query(self, query, params=None):
+        self.cursor.execute(query, params)
+        return self.cursor.fetchall()
 
-    def disconnect(self):
-        if self.connection:
-            self.connection.close()
-            print("¡Conexión cerrada!")
+    def __enter__(self):
+        return self
 
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.conn.close()
