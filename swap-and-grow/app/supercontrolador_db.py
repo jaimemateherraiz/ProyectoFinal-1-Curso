@@ -105,9 +105,9 @@ def mostrar_supercontrolador(frame_admin, ventana_principal):
     cursor = conexion.cursor()
 
     # Creación de los contenedores y widgets necesarios
-    contienetablas = ctk.CTkFrame(frame_admin)
-    contienetablas.pack(side="left", fill="both", expand=True, padx=5, pady=5)
-    ctk.CTkLabel(contienetablas, text="Tablas en la BBDD", font=("Arial", 16)).pack(pady=10)
+    contienetablas = ctk.CTkFrame(frame_admin, width=300)
+    contienetablas.pack(side="left", fill="both", expand=False, padx=5, pady=5)
+    ctk.CTkLabel(contienetablas, text="Tablas de la DB", font=("Arial", 16)).pack(pady=10)
 
     # Obtener las tablas de la base de datos y crear botones para seleccionarlas
     cursor.execute("SHOW TABLES IN " + varbasededatos)
@@ -120,8 +120,8 @@ def mostrar_supercontrolador(frame_admin, ventana_principal):
         ctk.CTkButton(contienetablas, text=tabla[0], width=10, command=lambda tabla=tabla[0]: seleccionaTabla(tabla)).pack(padx=10, pady=10)
 
     # Creación del contenedor para el formulario de inserción
-    contieneformulario = ctk.CTkFrame(frame_admin)
-    contieneformulario.pack(side="left", fill="both", expand=True, padx=5, pady=5)
+    contieneformulario = ctk.CTkFrame(frame_admin, width=300)
+    contieneformulario.pack(side="left", fill="both", expand=False, padx=5, pady=5)
     ctk.CTkLabel(contieneformulario, text="Formulario de inserción", font=("Arial", 16)).pack(pady=10)
 
     # Mostrar los campos del formulario según la tabla seleccionada
