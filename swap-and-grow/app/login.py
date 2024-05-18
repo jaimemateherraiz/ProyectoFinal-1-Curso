@@ -1,5 +1,3 @@
-# auth.py
-
 import customtkinter as ctk
 from PIL import Image, ImageTk
 
@@ -8,6 +6,8 @@ def iniciar_sesion(crear_ventana_principal):
     # Crear ventana de login
     ventana_login = ctk.CTk()
     ventana_login.geometry("500x350")
+    ventana_login.maxsize(500,350)
+    ventana_login.minsize(500,350)
     ventana_login.title("Login")
 
     # Cargar la imagen del logo
