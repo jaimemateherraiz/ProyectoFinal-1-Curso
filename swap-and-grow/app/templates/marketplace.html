@@ -22,23 +22,23 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Swap & Grow</a>
+            <a class="navbar-brand" href="{{ url_for('index') }}">Swap & Grow</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Swaps</a>
+                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="{{ url_for('marketplace') }}">Marketplace</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Swaps</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Marketplace</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Acerca de</a>
+                        <a class="nav-link" href="{{ url_for('about') }}">Acerca de</a>
                     </li>
                 </ul>
             </div>
@@ -64,6 +64,28 @@
                 <p>No hay productos disponibles en este momento.</p>
             {% endif %}
         </div>
+        
+        <!-- Botón para mostrar el formulario -->
+        <button class="btn btn-primary" data-toggle="collapse" data-target="#addProductForm">Añadir Nuevo Producto</button>
+        
+        <!-- Formulario para añadir productos -->
+        <div id="addProductForm" class="collapse mt-4">
+            <form method="POST" action="{{ url_for('marketplace') }}">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Producto</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio (€)</label>
+                    <input type="number" class="form-control" id="precio" name="precio" required>
+                </div>
+                <button type="submit" class="btn btn-success">Añadir Nuevo Producto</button>
+            </form>
+        </div>
     </div>
 
     <footer>
@@ -72,7 +94,9 @@
         </div>
     </footer>
 
-
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

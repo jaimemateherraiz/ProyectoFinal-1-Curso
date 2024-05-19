@@ -10,7 +10,7 @@
             background-color: #8bc34a; 
             color: #fff;
             padding: 20px 0;
-            text-align: center;
+            text-align: center; 
             bottom: 0;
             width: 100%;
         }
@@ -19,59 +19,66 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Swap & Grow</a>
+            <a class="navbar-brand" href="{{ url_for('index') }}">Swap & Grow</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="{{ url_for('index') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Swaps</a>
+                        <a class="nav-link" href="">Swaps</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Marketplace</a>
+                        <a class="nav-link" href="{{ url_for('marketplace') }}">Marketplace</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Acerca de</a>
+                        <a class="nav-link" href="{{ url_for('about') }}">Acerca de</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Contenido principal -->
     <div class="container my-5">
-        <h1>Acerca de Swap & Grow</h1>
-        <p class="lead">¡Bienvenido a Swap & Grow! Nuestro objetivo es facilitar los intercambios y fomentar el crecimiento de tus proyectos a través de una plataforma innovadora y colaborativa.</p>
-        
-        <h2>¿Qué es Swap & Grow?</h2>
-        <p>Swap & Grow es una plataforma diseñada para permitir a los usuarios realizar intercambios (swaps) de una amplia variedad de artículos y servicios. La idea es crear una comunidad donde los recursos puedan ser reutilizados y compartidos, promoviendo así la sostenibilidad y la economía circular.</p>
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Acerca de Swap & Grow</h1>
+                <p class="lead">¡Bienvenido a Swap & Grow! Nuestro objetivo es facilitar los intercambios y fomentar el crecimiento de tus proyectos a través de una plataforma innovadora y colaborativa.</p>
+                
+                <h2>¿Qué es Swap & Grow?</h2>
+                <p>Swap & Grow es una plataforma diseñada para permitir a los usuarios realizar intercambios (swaps) de una amplia variedad de artículos y servicios. La idea es crear una comunidad donde los recursos puedan ser reutilizados y compartidos, promoviendo así la sostenibilidad y la economía circular.</p>
 
-        <h2>Características Principales</h2>
-        <ul>
-            <li><strong>Swaps:</strong> Los usuarios pueden intercambiar artículos y servicios de manera sencilla y segura.</li>
-            <li><strong>Marketplace:</strong> Un espacio donde los usuarios pueden comprar y vender artículos nuevos y usados.</li>
-            <li><strong>Perfil de Usuario:</strong> Cada usuario tiene un perfil donde puede gestionar sus intercambios, ventas y compras.</li>
-            <li><strong>Reputación:</strong> Un sistema de calificación y comentarios para garantizar la confiabilidad de los usuarios.</li>
-        </ul>
+                <h2>Características Principales</h2>
+                <ul>
+                    <li><strong>Swaps:</strong> Los usuarios pueden intercambiar artículos y servicios de manera sencilla y segura.</li>
+                    <li><strong>Marketplace:</strong> Un espacio donde los usuarios pueden comprar y vender artículos nuevos y usados.</li>
+                    <li><strong>Perfil de Usuario:</strong> Cada usuario tiene un perfil donde puede gestionar sus intercambios, ventas y compras.</li>
+                    <li><strong>Reputación:</strong> Un sistema de calificación y comentarios para garantizar la confiabilidad de los usuarios.</li>
+                </ul>
 
-        <h2>Visión y Misión</h2>
-        <p>Nuestra visión es crear una comunidad global donde los recursos se utilicen de manera más eficiente, reduciendo el desperdicio y promoviendo un estilo de vida más sostenible. Nuestra misión es proporcionar una plataforma fácil de usar que facilite los intercambios y las ventas, apoyando tanto a individuos como a pequeñas empresas.</p>
+                <h2>Visión y Misión</h2>
+                <p>Nuestra visión es crear una comunidad global donde los recursos se utilicen de manera más eficiente, reduciendo el desperdicio y promoviendo un estilo de vida más sostenible. Nuestra misión es proporcionar una plataforma fácil de usar que facilite los intercambios y las ventas, apoyando tanto a individuos como a pequeñas empresas.</p>
 
-        <h2>¿Cómo Funciona?</h2>
-        <p>Es simple:</p>
-        <ol>
-            <li><strong>Regístrate:</strong> Crea una cuenta gratuita en nuestra plataforma.</li>
-            <li><strong>Explora:</strong> Navega por los swaps disponibles o el marketplace para encontrar lo que necesitas.</li>
-            <li><strong>Intercambia:</strong> Contacta con otros usuarios para realizar intercambios o compras.</li>
-            <li><strong>Colabora:</strong> Participa en la comunidad, deja comentarios y calificaciones.</li>
-        </ol>
+                <h2>¿Cómo Funciona?</h2>
+                <p>Es simple:</p>
+                <ol>
+                    <li><strong>Regístrate:</strong> Crea una cuenta gratuita en nuestra plataforma.</li>
+                    <li><strong>Explora:</strong> Navega por los swaps disponibles o el marketplace para encontrar lo que necesitas.</li>
+                    <li><strong>Intercambia:</strong> Contacta con otros usuarios para realizar intercambios o compras.</li>
+                    <li><strong>Colabora:</strong> Participa en la comunidad, deja comentarios y calificaciones.</li>
+                </ol>
 
-        <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta o necesitas más información, no dudes en <a href="contact.html">contactarnos</a>.</p>
+                <h2>Contacto</h2>
+                <p>Si tienes alguna pregunta o necesitas más información, no dudes en <a href="/contact">contactarnos</a>.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="../static/img/img_infografia_about.png" class="img-fluid" alt="Infografía de Swap & Grow">
+                
+            </div>
+        </div>
     </div>
 
     <footer>
